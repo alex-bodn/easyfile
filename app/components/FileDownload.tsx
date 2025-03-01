@@ -3,12 +3,18 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+type FileType = {
+    name: string;
+    size: number;
+    createdAt: string;
+};
+
 export default function FileDownload(params: { fileId: string | undefined }) {
     const { fileId } = params;
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<null | string>(null);
-    const [file, setFile] = useState(null);
+    const [file, setFile] = useState<FileType | null>(null);
     const router = useRouter();
 
     useEffect(() => {
