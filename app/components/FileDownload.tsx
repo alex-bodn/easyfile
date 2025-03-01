@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+import { FaFolder } from "react-icons/fa";
+
 type FileType = {
     name: string;
     size: number;
@@ -32,9 +34,10 @@ export default function FileDownload(params: { fileId: string | undefined }) {
         const fetchData = async () => {
           try {
             const response = await fetch(`/api/filesInfo/${fileId}`);
-            if (!response.ok) throw new Error("Failed to fetch");
-    
+              
             const result = await response.json();
+            if (!response.ok) throw new Error(result.error ? result.error : `Failed to fetch`);
+  
             if (isMounted) {
               setFile(result.data);
               setLoading(false);
@@ -67,14 +70,15 @@ export default function FileDownload(params: { fileId: string | undefined }) {
     }
 
     return(
-        <div className="flex flex-col items-center justify-center h-[400px] lg:w-1/3 w-full h-44 rounded-md shadow-xl">
+        <div className="flex flex-col items-center justify-center h-[400px] lg:w-1/3 w-full rounded-md shadow-xl">
             <label
                 htmlFor="dropzone-file"
                 className="flex flex-col items-center justify-center w-full h-64 border-2 border-blue-300 border-dashed rounded-lg cursor-pointer bg-blue-50 dark:bg-blue-200 dark:border-blue-200 "
             >       
 
                 <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                    <div className="mb-2 text-sm text-gray-500">
+                    <div className="flex justify-center items-center  mb-3 text-sm text-gray-500">
+                        <FaFolder className="text-blue-500 mr-3 w-12 h-12" />
                         { !loading && file ? (
                              <div className="flex flex-col">
                                 <span className="font-semibold text-xl text-blue-500" >File found!</span>
@@ -83,8 +87,11 @@ export default function FileDownload(params: { fileId: string | undefined }) {
                                 <span>Added at {file?.createdAt}</span>
                             </div>
                         ) : (
-                            <span className="font-semibold">Please wait, we searching your file...</span>
-                        ) }                       
+                            <div>
+                                <span className="font-semibold">Please wait, we searching your file...</span>
+                                {error && <p className="text-red-500 text-sm">{error}</p>}    
+                            </div>
+                        )}                       
                     </div>    
                 </div>
             </label>
@@ -95,7 +102,6 @@ export default function FileDownload(params: { fileId: string | undefined }) {
             >
                 { loading ? "Loading..." : "Download" }
             </button>
-            {error && <p className="text-red-500 text-sm">{error}</p>}
         </div>
     )
 }
