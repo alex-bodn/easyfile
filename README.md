@@ -1,9 +1,9 @@
 # 📂 EasyFile - File Sharing Service
 
+EasyFile is a **file-sharing web application** built with **Next.js (React)** that allows users to **upload files and share a download link** with friends. Similar to web-based file-sharing services, it simplifies file transfers.
+
 ![EasyFile Upload Preview](screenshots/index.png)
 ![EasyFile Download Preview](screenshots/download.png)
-
-EasyFile is a **file-sharing web application** built with **Next.js (React)** that allows users to **upload files and share a download link** with friends. Similar to web-based file-sharing services, it simplifies file transfers.
 
 ## 🚀 Features
 - Upload a file and receive a shareable link
