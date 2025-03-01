@@ -15,7 +15,7 @@ EasyFile is a **file-sharing web application** built with **Next.js (React)** th
 - **Frontend:** Next.js (React)
 - **Backend:** Next.js API Routes
 - **Database:** PostgreSQL (via Prisma ORM)
-- **Storage:** Local (or could be extended with S3)
+- **Storage:** Local
 - **Deployment:** Docker, Docker Compose
 
 ---
@@ -33,6 +33,14 @@ cd easyfile
 ```
 npm install
 ```
+
+### 3️⃣ **Make DB migration and run docker**
+
+```
+npx prisma migrate dev --name init
+docker-compose up -d
+```
+
 
 ### 🏃‍♂️ **Running the Project Locally**
 

@@ -95,13 +95,15 @@ export default function FileDownload(params: { fileId: string | undefined }) {
                     </div>    
                 </div>
             </label>
-            <button
+            { !loading && !error && (
+                <button
                 onClick={handleDownload}
                 disabled={!file}
                 className="rounded-full w-40 h-10 mt-10 font-bold bg-blue-500 border-x-blue-600 hover:bg-blue-600 disabled:bg-blue-400"
-            >
-                { loading ? "Loading..." : "Download" }
-            </button>
+                >
+                   Download
+                </button>
+            )}
         </div>
     )
 }
