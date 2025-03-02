@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
-export async function GET(req: NextRequest, context: { params: { id: string } }) {
-    const { id } = await context.params;
+export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
 
     if(!id) {
         return NextResponse.json({ error: 'File id not specified' }, { status: 400 })

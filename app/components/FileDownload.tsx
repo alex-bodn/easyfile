@@ -1,7 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 import { FaFolder } from "react-icons/fa";
 
@@ -17,7 +16,6 @@ export default function FileDownload(params: { fileId: string | undefined }) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<null | string>(null);
     const [file, setFile] = useState<FileType | null>(null);
-    const router = useRouter();
 
     useEffect(() => {
         setLoading(true);
@@ -55,7 +53,7 @@ export default function FileDownload(params: { fileId: string | undefined }) {
         return () => {
           isMounted = false;
         };
-    }, [])
+    }, [fileId])
 
     async function handleDownload() {
         const downloadUrl = `${window.location.origin}/api/files/${fileId}`;

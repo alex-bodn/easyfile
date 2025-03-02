@@ -1,12 +1,12 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 export default function FileUpload() {
     const [file, setFile] = useState<File | null>(null);
     const [uploading, setUploading] = useState(false);
     const [message, setMessage] = useState<string | null>(null);
-    const [error, setError] = useState<string | null>(null);
+    const [errorMessage, setError] = useState<string | null>(null);
     const [fileUrl, setFileUrl] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -52,7 +52,7 @@ export default function FileUpload() {
 
             if (fileInputRef.current) fileInputRef.current.value = "";
         } catch (error) {
-            setError("File upload failed!")
+            setError(`File upload failed! | ${error}`)
         } finally {
             setUploading(false);
         }
@@ -125,13 +125,13 @@ export default function FileUpload() {
                 { uploading ? "Uploading..." : "Upload" }
             </button>
             {message && <p className="text-center font-mono text-gray-500">{message}</p>}
-            {error && <p className="text-red-500 text-sm">{error}</p>}
+            {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
             {fileUrl && (
                 <div className="w-full mt-4 p-3">
                 <p className="text-blue-300 text-center text-sm">Download URL:</p>
                 <div className="flex items-center mt-1">
                     <div
-                        onClick={(e) => window.open(fileUrl, "_blank")}
+                        onClick={() => window.open(fileUrl, "_blank")}
                         className="flex w-full justify-center px-2 py-1 text-gray-500 border rounded-lg hover:underline cursor-pointer duration-150 transition-all overflow-hidden"
                     >
                         {fileUrl}
