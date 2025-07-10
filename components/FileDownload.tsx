@@ -72,7 +72,7 @@ export default function FileDownload(params: { fileId: string | undefined }) {
     }
 
     return(
-        <div className="flex flex-col items-center justify-center h-[400px] lg:w-1/3 w-full rounded-md shadow-xl dark:bg-gray-800">
+        <div className="flex flex-col items-center justify-center h-[400px] lg:w-1/2 w-full rounded-md shadow-xl dark:bg-gray-800">
             <label
                 htmlFor="dropzone-file"
                 className="flex flex-col items-center justify-center w-full h-64 rounded-lg cursor-pointer bg-blue-100 dark:bg-gray-600"

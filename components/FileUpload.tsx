@@ -40,8 +40,8 @@ export default function FileUpload() {
 
     try {
       const fileSizeMB = file.size / (1024 * 1024);
-      if (fileSizeMB > 10) {
-        setError('File is too large. Maximum size allowed is 10MB.');
+      if (fileSizeMB > 5) {
+        setError(t('TooBigFileError'));
         return;
       }
 
@@ -106,7 +106,7 @@ export default function FileUpload() {
             <p className="mb-2 text-sm">
               <span className="font-semibold">{t('UploadAction')}</span>
             </p>
-            <p className="text-xs">ANY TYPE (MAX. 10MB)</p>
+            <p className="text-xs">ANY TYPE (MAX. 5MB)</p>
           </div>
         )}
 

@@ -9,6 +9,7 @@
     "FileFound": "File found!",
     "Size": "Size",
     "AddedAt": "Added at",
-    "FileFindingTitle": "Please wait, we searching your file..."
+    "FileFindingTitle": "Please wait, we searching your file...",
+    "TooBigFileError": "File is too large. Maximum size allowed is 5MB."
   }
 }
