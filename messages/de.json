@@ -1,0 +1,14 @@
+{
+  "Page": {
+    "title": "Diese Website dient ausschließlich dem Austausch persönlicher Dateien. Die Nutzer sind für die von ihnen hochgeladenen Inhalte selbst verantwortlich. Illegale oder urheberrechtlich geschützte Materialien sind strengstens untersagt. Bitte nutzen Sie diese Plattform nur für rechtmäßige und persönliche Zwecke.",
+    "UploadBtn": "Hochladen",
+    "Download": "Herunterladen",
+    "UploadAction": "Klicken zum Hochladen oder ziehen und ablegen",
+    "NewFileAction": "Wenn Sie eine neue Datei hochladen möchten, laden Sie bitte die Seite neu!",
+    "Copy": "Kopieren",
+    "FileFound": "Datei gefunden!",
+    "Size": "Größe",
+    "AddedAt": "Hinzugefügt am",
+    "FileFindingTitle": "Bitte warten Sie, wir suchen Ihre Datei..."
+  }
+}

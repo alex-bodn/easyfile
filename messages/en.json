@@ -1,0 +1,14 @@
+{
+  "Page": {
+    "title": "This site is intended solely for sharing personal files. Users are responsible for the content they upload, and illegal or copyrighted materials are strictly prohibited. Use this platform only for lawful and personal purposes.",
+    "UploadBtn": "Upload",
+    "Download": "Download",
+    "UploadAction": "Click to upload or drag and drop",
+    "NewFileAction": "If you want to upload new file please reload page!",
+    "Copy": "Copy",
+    "FileFound": "File found!",
+    "Size": "Size",
+    "AddedAt": "Added at",
+    "FileFindingTitle": "Please wait, we searching your file..."
+  }
+}
