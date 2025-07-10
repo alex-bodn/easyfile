@@ -1,17 +1,14 @@
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
-
-import userEvent from '@testing-library/user-event';
+import { render } from '@testing-library/react';
 
 import ThemeToggle from './ThemeToggle';
-import { ThemeProvider } from 'next-themes';
 
 jest.mock('@/hooks/useTheme', () => ({
   __esModule: true,
   default: jest.fn(),
 }));
 
-const mockUseTheme = require('@/hooks/useTheme').default;
+import mockUseTheme from '@/hooks/useTheme';
 
 beforeAll(() => {
   Object.defineProperty(window, 'matchMedia', {
@@ -32,7 +29,7 @@ describe('ThemeToggle', () => {
   });
 
   it('returns null when not mounted', () => {
-    mockUseTheme.mockReturnValue({
+    (mockUseTheme as jest.Mock).mockReturnValue({
       theme: 'light',
       setTheme: jest.fn(),
       toggleTheme: jest.fn(),
